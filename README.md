@@ -1,6 +1,7 @@
-<h1 align="center">System Information Siswa CRUD<h1>
+# System Information Siswa CRUD
 
 ## How To Install This Project To Your Computer
+
 
 ```
 git clone https://github.com/SyaPratama/System-Siswa.git
