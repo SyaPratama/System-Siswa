@@ -12,4 +12,9 @@ class Siswa extends Controller
     {
         return view("components.admin.content.dashboard");
     }
+
+    public function showList(): View
+    {
+        return view("components.admin.content.siswa");
+    }
 }

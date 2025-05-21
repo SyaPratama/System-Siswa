@@ -14,6 +14,7 @@ Route::middleware("guest")->group(function () {
 
 Route::middleware('auth','admin')->group(function(){
     Route::get('/dashboard', [Siswa::class,'index'])->name('siswa.dashboard');
+    Route::get('/siswa', [Siswa::class,'showList'])->name('siswa.list');
 });
 
 
