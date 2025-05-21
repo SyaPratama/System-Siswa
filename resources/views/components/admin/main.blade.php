@@ -13,6 +13,7 @@
     <title>{{ $title ?? 'Dashboard System Information' }}</title>
 
     @vite('resources/css/app.css')
+    @vite('resources/css/extends.css')
 </head>
 
 <body class="text-gray-800 font-inter">
