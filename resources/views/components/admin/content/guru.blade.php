@@ -28,13 +28,13 @@
 
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <h1 class="font-bold text-3xl pt-4 pb-2 text-white">
-            Table Siswa
+            Table Guru
         </h1>
         <!-- Modal toggle -->
         <button data-modal-target="authentication-modal" data-modal-toggle="authentication-modal"
             class="block my-5 cursor-pointer text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             type="button">
-            Tambah Siswa
+            Tambah Guru
         </button>
 
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -47,13 +47,16 @@
                         Nama
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Kelas
+                        Nip
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Umur
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Gender
+                        Mapel
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                       Gender
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Action
@@ -61,7 +64,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($siswa as $idx => $item)
+                @foreach ($guru as $idx => $item)
                     <tr
                         class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
                         <th scope="row" class="px-6 py-4 text-white font-medium">
@@ -71,18 +74,19 @@
                             {{ $item->nama }}
                         </td>
                         <td class="px-6 py-4 text-white font-medium">
-                            {{ $item->kelas }}
+                            {{ $item->nip }}
                         </td>
                         <td class="px-6 py-4 text-white font-medium">
                             {{ $item->umur }}
                         </td>
                         <td class="px-6 py-4 text-white font-medium">
+                            {{ $item->mapel }}
+                        </td>
+                        <td class="px-6 py-4 text-white font-medium">
                             {{ $item->jenkel }}
                         </td>
                         <td class="px-6 py-4 flex gap-2">
-                            <button data-id="{{ route('siswa.find', $item->id) }}"
-                                class="update-modal font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                                type="button">
+                            <button data-id="{{ route('guru.find',$item->id) }}" class="guru-update-modal font-medium text-blue-600 dark:text-blue-500 hover:underline" type="button">
                                 <svg class="w-6 h-6 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                     width="24" height="24" fill="none" viewBox="0 0 24 24">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -91,10 +95,8 @@
                                 </svg>
 
                             </button>
-                            <button value="{{ route('siswa.delete', $item->id) }}" data-modal-target="popup-modal"
-                                data-modal-toggle="popup-modal"
-                                class="delete-modal font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                                type="button">
+                            <button value="{{ route('guru.delete',$item->id) }}" data-modal-target="popup-modal" data-modal-toggle="popup-modal"
+                                class="guru-delete-modal font-medium text-blue-600 dark:text-blue-500 hover:underline" type="button">
                                 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                                     viewBox="0 0 24 24">
@@ -111,9 +113,10 @@
     </div>
 
 
-    @extends('components.admin.content.modal.siswa-add')
-    @extends('components.admin.content.modal.siswa-edit')
-    @extends('components.admin.content.modal.siswa-delete')
+    @extends('components.admin.content.modal.guru-add')
+    @extends('components.admin.content.modal.guru-edit')
+    @extends('components.admin.content.modal.guru-delete')
 
-    @vite('resources/js/siswa.js')
+
+    @vite('resources/js/guru.js')
 @endsection
