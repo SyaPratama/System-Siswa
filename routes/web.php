@@ -22,7 +22,7 @@ Route::middleware('auth', 'admin')->group(function () {
         Route::get('/{id}', [Siswa::class, 'findSiswa'])->name('siswa.find');
         Route::post('', [Siswa::class, 'siswaAdd'])->name('siswa.add');
         Route::put('/{id}', [Siswa::class, 'siswaUpdate'])->name('siswa.update');
-        Route::post('/{id}', [Siswa::class, 'siswaDelete'])->name('siswa.delete');
+        Route::delete('/{id}', [Siswa::class, 'siswaDelete'])->name('siswa.delete');
     });
 
     Route::prefix('guru')->group(function () {
@@ -30,11 +30,11 @@ Route::middleware('auth', 'admin')->group(function () {
          Route::get('/{id}', [Guru::class, 'findGuru'])->name('guru.find');
         Route::post('', [Guru::class, 'guruAdd'])->name('guru.add');
         Route::put('/{id}', [Guru::class, 'guruUpdate'])->name('guru.update');
-        Route::post('/{id}', [Guru::class, 'guruDelete'])->name('guru.delete');
+        Route::delete('/{id}', [Guru::class, 'guruDelete'])->name('guru.delete');
     });
 });
 
 
 Route::fallback(function () {
-    return redirect('/login');
+    return redirect()->route('view.login');
 });

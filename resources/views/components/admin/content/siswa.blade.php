@@ -91,9 +91,9 @@
                                 </svg>
 
                             </button>
-                            <button value="{{ route('siswa.delete', $item->id) }}" data-modal-target="popup-modal"
-                                data-modal-toggle="popup-modal"
-                                class="delete-modal font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                            <button data-id="{{ route('siswa.delete', $item->id) }}" data-modal-target="siswa-modal"
+                                data-modal-toggle="siswa-modal"
+                                class="siswa-delete-modal font-medium text-blue-600 dark:text-blue-500 hover:underline"
                                 type="button">
                                 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"

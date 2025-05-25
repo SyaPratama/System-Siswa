@@ -95,7 +95,7 @@
                                 </svg>
 
                             </button>
-                            <button value="{{ route('guru.delete',$item->id) }}" data-modal-target="popup-modal" data-modal-toggle="popup-modal"
+                            <button data-id="{{ route('guru.delete',$item->id) }}" data-modal-target="guru-modal" data-modal-toggle="guru-modal"
                                 class="guru-delete-modal font-medium text-blue-600 dark:text-blue-500 hover:underline" type="button">
                                 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"

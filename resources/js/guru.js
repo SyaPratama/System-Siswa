@@ -1,4 +1,4 @@
-const guruDeleteModal = document.querySelector(".guru-delete-modal");
+const guruDeleteModal = document.querySelectorAll(".guru-delete-modal");
 const guruEditModal = document.querySelectorAll(".guru-update-modal");
 const guruTargetEdit = document.getElementById("guru-edit-target-modal");
 
@@ -54,8 +54,12 @@ guruEditModal.forEach((element) => {
     });
 });
 
-guruDeleteModal.addEventListener("click", function () {
-    const id = this.value;
-    const modal = document.querySelector("#popup-modal > form");
-    modal.setAttribute("action", id);
+guruDeleteModal.forEach((n) => {
+    n.addEventListener("click", function () {
+        const id = this.getAttribute('data-id');
+
+        const guruForm = document.querySelector('#guru-modal > form');
+
+        guruForm.setAttribute('action',id);
+    });
 });

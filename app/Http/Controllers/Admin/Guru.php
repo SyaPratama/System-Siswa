@@ -83,7 +83,6 @@ class Guru extends Controller
     public function guruDelete(int $id)
     {
         ModelsGuru::destroy($id);
-
         return redirect()->back()->with('success', 'Berhasil Menghapus Guru');
     }
 }

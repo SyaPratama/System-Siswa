@@ -1,4 +1,4 @@
-const deleteModal = document.querySelector(".delete-modal");
+const deleteModal = document.querySelectorAll(".delete-modal");
 const editModal = document.querySelectorAll(".update-modal");
 const targetEdit = document.getElementById("edit-target-modal");
 
@@ -16,21 +16,23 @@ const instanceOptions = {
 };
 const modal = new Modal(targetEdit, options, instanceOptions);
 
-targetEdit.querySelector("[data-modal-hide='edit-target-modal']").addEventListener("click", function () {
+targetEdit
+    .querySelector("[data-modal-hide='edit-target-modal']")
+    .addEventListener("click", function () {
         modal.hide();
-});
+    });
 
 editModal.forEach((element) => {
     element.addEventListener("click", async function () {
-        const id = this.getAttribute('data-id');
+        const id = this.getAttribute("data-id");
 
         const nama = modal._targetEl.querySelector("#nama");
         const umur = modal._targetEl.querySelector("#umur");
         const kelas = modal._targetEl.querySelector("#kelas");
         const jenkel = modal._targetEl.querySelector("#jenkel");
 
-        const action = modal._targetEl.querySelector('form');
-        action.setAttribute('action',id);
+        const action = modal._targetEl.querySelector("form");
+        action.setAttribute("action", id);
 
         const data = await fetch(id, {
             method: "GET",
@@ -50,9 +52,11 @@ editModal.forEach((element) => {
     });
 });
 
-deleteModal.addEventListener("click", function () {
-    const id = this.value;
+deleteModal.forEach(n => {
+    n.addEventListener("click", function () {
+        const id = this.getAttribute("data-id");
 
-    const modal = document.querySelector("#popup-modal > form");
-    modal.setAttribute("action", id);
+        const deleteSiswa = document?.querySelector("#siswa-modal > form");
+        deleteSiswa.setAttribute("action", id);
+    });
 });
