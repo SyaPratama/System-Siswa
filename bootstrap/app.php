@@ -15,6 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'admin' => Admin::class,
         ]);
+        $middleware->redirectGuestsTo(fn () => route('view.login'));
     })
     ->withExceptions(function (Exceptions $exceptions) {
     })->create();

@@ -79,7 +79,6 @@ class Siswa extends Controller
 
     public function siswaDelete(int $id){
         ModelsSiswa::destroy($id);
-
          return redirect()->back()->with('success','Berhasil Menghapus Siswa');
     }
 }

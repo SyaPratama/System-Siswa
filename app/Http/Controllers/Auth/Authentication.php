@@ -55,7 +55,7 @@ class Authentication extends Controller
 
         if(Auth::attempt($request->only('email','password'))){
             $request->session()->regenerate();
-            if(Auth::user()->usertype == 'admin') return Redirect::to('/dashboard')->with('success','You successfully login');
+            if(Auth::user()->usertype == 'admin') return redirect()->route('dashboard')->with('success','You successfully login');
         }
 
         return redirect()->back()->with("failed","Password Not Match")->withInput();

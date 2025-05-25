@@ -56,7 +56,7 @@ deleteModal.forEach(n => {
     n.addEventListener("click", function () {
         const id = this.getAttribute("data-id");
 
-        const deleteSiswa = document?.querySelector("#siswa-modal > form");
+        const deleteSiswa = document.querySelector("#siswa-modal > form");
         deleteSiswa.setAttribute("action", id);
     });
 });
