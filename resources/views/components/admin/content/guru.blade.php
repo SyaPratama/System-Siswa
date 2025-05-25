@@ -26,7 +26,7 @@
         </div>
     @endif
 
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <div class="relative overflow-x-auto sm:rounded-lg">
         <h1 class="font-bold text-3xl pt-4 pb-2 text-white">
             Table Guru
         </h1>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Guru as ModelsGuru;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\View\View;
 
@@ -13,7 +14,13 @@ class Guru extends Controller
     public function showList(): View
     {
         $guru = ModelsGuru::all();
-        return view("components.admin.content.guru", ['guru' => $guru]);
+        $user = Auth::user();
+
+        return view("components.admin.content.guru", [
+            'guru' => $guru,
+            "username" => $user->name,
+            "email" => $user->email,
+        ]);
     }
 
     public function guruAdd(Request $request)

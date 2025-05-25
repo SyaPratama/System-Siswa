@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Siswa as ModelsSiswa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\View\View;
@@ -15,7 +16,13 @@ class Siswa extends Controller
     public function showList(): View
     {
         $siswa = ModelsSiswa::all();
-        return view("components.admin.content.siswa",['siswa' => $siswa]);
+        $user = Auth::user();
+
+        return view("components.admin.content.siswa",[
+            'siswa' => $siswa,
+            "username" => $user->name,
+            "email" => $user->email,
+        ]);
     }
 
     public function siswaAdd(Request $request)

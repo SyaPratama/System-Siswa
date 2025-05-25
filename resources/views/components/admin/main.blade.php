@@ -25,12 +25,9 @@
     <!--sidenav -->
     @extends('components.admin.component.sidenav')
     <!-- end sidenav -->
-
-    <div class="p-4 sm:ml-64 min-h-screen bg-gray-700">
+    <div class="p-3 py-20 sm:ml-64 min-h-screen dark:bg-slate-700">
         @yield('content')
     </div>
-
-
 </body>
 
 </html>

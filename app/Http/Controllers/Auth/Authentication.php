@@ -60,4 +60,10 @@ class Authentication extends Controller
 
         return redirect()->back()->with("failed","Password Not Match")->withInput();
     }
+
+    public function logout()
+    {
+        Auth::logout();
+        return Redirect::to("/login");
+    }
 }

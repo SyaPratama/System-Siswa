@@ -16,6 +16,7 @@ Route::middleware("guest")->group(function () {
 
 Route::middleware('auth', 'admin')->group(function () {
     Route::get('/dashboard', [Dashboard::class, 'index'])->name('dashboard');
+    Route::get('/logout', [Authentication::class, 'logout'])->name('auth.logout');
     Route::prefix('siswa')->group(function () {
         Route::get('', [Siswa::class, 'showList'])->name('siswa.list');
         Route::get('/{id}', [Siswa::class, 'findSiswa'])->name('siswa.find');
